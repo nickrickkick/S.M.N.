@@ -52,11 +52,19 @@ button{
     z-index: 2;
     margin-top: 500px;
 }
-#swordplay{
-    background-image: url(images/sword%20character%20stand.gif);
+.swordplay{
+    position: absolute;
+    top: 350px;
+    left: 100px;
+    width: auto;
+    height: auto;
+    z-index: 7;
 }
-#hammerplay{
-    background-image: url(images/hammer%20character%20stand.gif);
+.hammerplay{
+    position: absolute;
+    width: auto;
+    height: auto;
+    z-index: 6;
 }
 #space{
     background-image: url(images/background.gif);
