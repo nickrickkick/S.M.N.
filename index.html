@@ -8,22 +8,22 @@
     <body>
          
         <div id="game">
-            <div id="start">
+            <div class="screen hidden" id="start">
                 <img class="map" src="images/homeScreen.png"/>
-                
                 <button id="solo">Solo</button>
                 <button id="co-op">Co-op</button>
                 
-                <audio id="background_music" autoplay loop>
+<!--                <audio id="background_music" autoplay loop>
                    <source src="music/opener.mp3" type="audio/mpeg">
-               </audio>
+               </audio> 
+-->
             </div>
-            <div id="pause">
+            <div class="screen hidden" id="pause">
                 <button id="resume">Resume</button>
                 <button id="exit">Exit</button>
             </div>
-            <div id="play">
-                <div id="swordplay"> <img src="images/sword%20character%20stand.gif"/> </div>
+            <div class="screen" id="play">
+                <div id="swordplay"></div>
                 <div id="hammerplay"></div>
                 <div id="canvas_wrap">
                     <canvas id="space" width="119" height="150"></canvas>
