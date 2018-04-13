@@ -1,19 +1,27 @@
-p{
-    color: red;
+#game{
+    position: absolute;
+    width: 1200px;
+    height: auto;
+    margin: auto;
 }
 #start{
     position: relative;
-    width: 100%;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
     height: auto;
-    border: 1px solid black;
     z-index: 1;
+}
+#play{
+    
 }
 .map{
     width: 100%;
 }
 #buttons{
     position: absolute;
-    width: 340;
     height: auto;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 340px;
 }
