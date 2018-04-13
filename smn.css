@@ -54,12 +54,14 @@ button{
     z-index: 2;
     margin-top: 500px;
 }
+.player{
+    width: 60px;
+    height: 60px;
+}
 #swordplay{
     position: absolute;
     top: 350px;
     left: 100px;
-    width: auto;
-    width: auto;
     height: auto;
     z-index: inherit;
     background-image: url(images/swordStand.gif)
@@ -68,8 +70,6 @@ button{
     position: absolute;
     top: 350px;
     left: 1000px;
-    width: auto;
-    height: auto;
     z-index: inherit;
     background-image: url(images/hammerStand.gif);
 }
