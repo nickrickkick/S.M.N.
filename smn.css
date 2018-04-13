@@ -55,10 +55,8 @@ button{
     background-image: url(images/hammer%20character%20stand.gif);
 }
 #space{
-
+    background-image: url(images/background.gif);
 }
 #resume{
-    background-image: url(images/background.gif)
-
-        
+    
 }
