@@ -18,7 +18,6 @@ var speed = 0;
 var horizontal = 0;
 var speed2 = 0;
 var horizontal2 = 0;
-var PlayerDmg = Math.floor(Math.random() * 6); // damage that player outputs
 
 var main_x = document.getElementById("hammerplay"), main_y = document.getElementById("hammerplay"), move_x = 0 , move_y = 0;
 var main_x2 =  document.getElementById("swordplay"), main_y2 =  document.getElementById("swordplay"), move_x2 = 0, move_y2 = 0;
@@ -37,22 +36,24 @@ function keyPressHammer(e){
            if(e.keyCode == 68){
       
       console.log(hammerplay);
+     
       if (hammerplay == null){
           hammerplay = document.getElementById("hammerplay");
       }
+     
         if (main_x == null){
           main_x = document.getElementById("hammerplay");
       }
          speed = 1.5;
         move_x = speed;
       
-      document.getElementById("hammerplay").style.transform = "rotate(90deg)";
+    //  document.getElementById("hammerplay").style.transform = "rotate(90deg)";
            }
     
     if(e.keyCode == 65){
         speed = -1.5;
     move_x = speed;
-    document.getElementById("hammerplay").style.transform = "rotate(-90deg)";
+  //  document.getElementById("hammerplay").style.transform = "rotate(-90deg)";
     }
     
     if(e.keyCode == 83){
@@ -62,12 +63,12 @@ function keyPressHammer(e){
         horizontal = 1.5;
     move_y = horizontal;
    
-    document.getElementById("hammerplay").style.transform = "rotate(180deg)";
+  //  document.getElementById("hammerplay").style.transform = "rotate(180deg)";
     }
     if(e.keyCode == 87){
         horizontal = -1.5;
     move_y = horizontal;
-    document.getElementById("hammerplay").style.transform = "rotate(360deg)";
+  //  document.getElementById("hammerplay").style.transform = "rotate(360deg)";
     }
      if(e.keyCode == 32) {//attack
          var sound = document.getElementById("");
@@ -248,7 +249,7 @@ function gameloop(){
     solo.onclick = function(){
         document.getElementById("solo").style.zIndex = "1"
          document.getElementById("co-op").style.zIndex = "1"
-        document.getElementById("start").style.zIndex = "1";
+        document.getElementById("map").style.zIndex = "1";
          document.getElementById("space").style.zIndex = "6";
          document.getElementById("hammerplay").style.zIndex = "6";
     }
