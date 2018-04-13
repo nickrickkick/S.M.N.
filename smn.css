@@ -5,13 +5,13 @@
     margin: auto;
 }
 #start{
-    z-index: 5;
+    z-index: 4;
 }
 #pause{
-    
+    z-index: 1;
 }
 #play{
-    
+    z-index: 3
 }
 .screen{
     position: absolute;
@@ -24,13 +24,29 @@
     width: 100%;
 }
 button{
+    font-family: cursive;
+    font-size: 35px;
+    font-weight: 800px;
     position: absolute;
     height: auto;
-    width: 70px;
-    margin-left: calc(50% - 35px);
+    width: 140px;
+    margin-left: calc(50% - 70px);
 }
 #solo{
-    z-index: 6
+    z-index: 5;
+    margin-top: 300px;
+}
+#co-op{
+    z-index: 5;
+    margin-top: 500px;
+}
+#resume{
+    z-index: 2;
+    margin-top: 300px;
+}
+#exit{
+    z-index: 2;
+    margin-top: 500px;
 }
 #swordplay{
     background-image: url(images/sword%20character%20stand.gif);
