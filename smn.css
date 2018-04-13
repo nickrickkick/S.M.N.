@@ -41,12 +41,10 @@ button{
 #solo{
     z-index: 5;
     margin-top: 300px;
-    z-index: inherit;
 }
 #co-op{
     z-index: 5;
     margin-top: 500px;
-    z-index: inherit;
 }
 #resume{
     z-index: 2;
