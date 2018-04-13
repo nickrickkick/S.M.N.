@@ -5,16 +5,13 @@
     margin: auto;
 }
 #start{
-    
+    z-index: 5;
 }
 #pause{
     
 }
 #play{
     
-}
-.hidden{
-    visibility: hidden;
 }
 .screen{
     position: absolute;
@@ -27,12 +24,13 @@
     width: 100%;
 }
 button{
-    position: relative;
+    position: absolute;
     height: auto;
     width: 70px;
     margin-left: calc(50% - 35px);
-    text-align: center;
-    z-index: 1;
+}
+#solo{
+    z-index: 6
 }
 #swordplay{
     background-image: url(images/sword%20character%20stand.gif);
