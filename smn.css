@@ -57,14 +57,17 @@ button{
     top: 350px;
     left: 100px;
     width: auto;
+    width: auto;
     height: auto;
     z-index: inherit;
+    background-image: url(images/swordStand.gif)
 }
 #hammerplay{
     position: absolute;
     width: auto;
     height: auto;
     z-index: inherit;
+    background-image: url(images/hammerStand.gif);
 }
 #space{
     background-image: url(images/background.gif);
