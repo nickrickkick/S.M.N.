@@ -64,6 +64,8 @@ button{
 }
 #hammerplay{
     position: absolute;
+    top: 350px;
+    left: 1000px;
     width: auto;
     height: auto;
     z-index: inherit;
