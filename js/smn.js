@@ -229,18 +229,7 @@ function moveSword(){
         }
    
 }
- resume.onclick = function(){
-    active = !active;
-};
-
-function pause(e){
-    if(e.keyCode == 222){
-        active = !active;
-        
-    }
-   
-   
-}
+ 
 
 
 function draw(){
@@ -255,7 +244,26 @@ function draw(){
  }
 
 function gameloop(){
-    
+    resume.onclick = function(){
+    active = !active;
+};
+
+ if(active == false){
+         document.getElementById("resume").style.zIndex = "6";
+          document.getElementById("exit").style.zIndex = "6";
+    }else {
+        document.getElementById("resume").style.zIndex = "-2";
+        document.getElementById("exit").style.zIndex = "-2";
+    } 
+
+function pause(e){
+    if(e.keyCode == 222){
+        active = !active;
+        
+    }
+   
+   
+}
   //  draw();
   if(active === false){
        
