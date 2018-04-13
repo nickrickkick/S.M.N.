@@ -247,6 +247,8 @@ function gameloop(){
     
     solo.onclick = function(){
         document.getElementById("start").style.zIndex = "1";
+         document.getElementById("space").style.zIndex = "6";
+         document.getElementById("hammerplay").style.zIndex = "6";
     }
     
     resume.onclick = function(){
@@ -288,7 +290,7 @@ function pause(e){
 function init() {
      solo = document.getElementById("solo");
      resume = document.getElementById("resume");
-     game = document.getElementById("land");
+     game = document.getElementById("space");
      if (game && game.getContext) {
     context = game.getContext('2d');
     setInterval(this.gameLoop,1000/100);
@@ -298,12 +300,12 @@ function init() {
      window.addEventListener("keyup", keyReleaseSword, false);
      window.addEventListener("keydown", keyPressHammer, false);
      window.addEventListener("keyup", keyReleaseHammer, false); 
+      solo.addEventListener("click", gameloop, false);
      }
      
      
 }
 
   
-
 
 window.addEventListener("load", this.init, false);
