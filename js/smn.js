@@ -4,20 +4,21 @@ var q = 0;
 var f = 0;
 var c = 0;
 var z = 0;
-var little = false;
+
 var game; //canvas
 var battle; //background
 var map; // background
 var context;
 var player1;
 var player2;
+var active = false;
 
+var resume;
 var speed = 0;
 var horizontal = 0;
 var speed2 = 0;
 var horizontal2 = 0;
 var PlayerDmg = Math.floor(Math.random() * 6); // damage that player outputs
-var battle_music = document.getElementById("battle_music");
 
 var main_x = document.getElementById("hammerplay"), main_y = document.getElementById("hammerplay"), move_x = 0 , move_y = 0;
 var main_x2 =  document.getElementById("swordplay"), main_y2 =  document.getElementById("swordplay"), move_x2 = 0, move_y2 = 0;
@@ -31,7 +32,7 @@ var map_music = document.getElementById("map_music");
    
 function keyPressHammer(e){
    
-    if(little === true){
+    
     
            if(e.keyCode == 68){
       
@@ -76,7 +77,7 @@ function keyPressHammer(e){
        
      }
     moveHammer();
-    }
+    
 }
 
 function keyReleaseHammer(e){
@@ -105,7 +106,7 @@ function keyReleaseHammer(e){
  
 }
 function keyPressSword(e){
-   if(little === true){
+   
        if(e.keyCode == 39){
            
               if (swordplay == null){
@@ -145,7 +146,7 @@ function keyPressSword(e){
     sound.play();
     }
    moveSword();
-   }
+   
 }
 function keyReleaseSword(e){
     if(e.keyCode == 39){
@@ -228,6 +229,18 @@ function moveSword(){
         }
    
 }
+ resume.onclick = function(){
+    active = !active;
+};
+
+function pause(e){
+    if(e.keyCode == 222){
+        active = !active;
+        
+    }
+   
+   
+}
 
 
 function draw(){
@@ -244,11 +257,11 @@ function draw(){
 function gameloop(){
     
   //  draw();
-  if(little === false){
+  if(active === false){
        
        
   }
-  else if(little ===true){
+  else if(active ===true){
       moveHammer();
     moveSword();
   }
@@ -259,7 +272,7 @@ function gameloop(){
 
 
 function init() {
-     var but = document.getElementsByClassName("battle");
+     resume = document.getElementById("resume");
      game = document.getElementById("land");
      if (game && game.getContext) {
     context = game.getContext('2d');
@@ -272,9 +285,7 @@ function init() {
      window.addEventListener("keyup", keyReleaseHammer, false); 
      }
      
-     but.onclick = function(){
-         little = true;
-     }
+     
 }
 
   
