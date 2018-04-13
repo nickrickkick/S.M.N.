@@ -249,7 +249,7 @@ function gameloop(){
     solo.onclick = function(){
         document.getElementById("solo").style.zIndex = "1"
          document.getElementById("co-op").style.zIndex = "1"
-        document.getElementById("map").style.zIndex = "1";
+        document.getElementById("start").style.zIndex = "1";
          document.getElementById("space").style.zIndex = "6";
          document.getElementById("hammerplay").style.zIndex = "6";
     }
