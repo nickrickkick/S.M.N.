@@ -2,6 +2,18 @@ p{
     color: red;
 }
 #start{
-    position: absolute;
+    position: relative;
+    width: 100%;
+    height: auto;
+    border: 1px solid black;
     z-index: 1;
+}
+.map{
+    width: 100%;
+}
+#buttons{
+    position: absolute;
+    width: 340;
+    height: auto;
+    margin: auto;
 }
