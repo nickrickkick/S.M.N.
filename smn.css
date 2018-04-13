@@ -1,11 +1,13 @@
 #game{
     position: relative;
     width: 1200px;
-    height: 921px;
+    height: 900px;
     margin: auto;
 }
 #start{
     z-index: 4;
+    background-image: url(images/homeScreen.png);
+    background-size: cover;
 }
 #pause{
     z-index: 1;
@@ -73,7 +75,4 @@ button{
 }
 #space{
     background-image: url(images/background.gif);
-}
-#resume{
-    
 }
