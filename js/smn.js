@@ -12,7 +12,7 @@ var context;
 var player1;
 var player2;
 var active = false;
-
+var solo;
 var resume;
 var speed = 0;
 var horizontal = 0;
@@ -244,11 +244,17 @@ function draw(){
  }
 
 function gameloop(){
+    
+    solo.onclick = function(){
+        document.getElementById("start").style.zIndex = "1";
+    }
+    
     resume.onclick = function(){
     active = !active;
 };
 
  if(active == false){
+     document.getElementById("space").style.zIndex = "6";
          document.getElementById("resume").style.zIndex = "6";
           document.getElementById("exit").style.zIndex = "6";
     }else {
@@ -280,6 +286,7 @@ function pause(e){
 
 
 function init() {
+     solo = document.getElementById("solo");
      resume = document.getElementById("resume");
      game = document.getElementById("land");
      if (game && game.getContext) {
