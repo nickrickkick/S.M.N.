@@ -19,11 +19,11 @@ var horizontal2 = 0;
 var PlayerDmg = Math.floor(Math.random() * 6); // damage that player outputs
 var battle_music = document.getElementById("battle_music");
 
-var main_x = document.getElementById("blueFight"), main_y = document.getElementById("blueFight"), move_x = 0 , move_y = 0;
-var main_x2 =  document.getElementById("redFight"), main_y2 =  document.getElementById("redFight"), move_x2 = 0, move_y2 = 0;
+var main_x = document.getElementById("hammerplay"), main_y = document.getElementById("hammerplay"), move_x = 0 , move_y = 0;
+var main_x2 =  document.getElementById("swordplay"), main_y2 =  document.getElementById("swordplay"), move_x2 = 0, move_y2 = 0;
 
-var hammerplay = document.getElementById("blueFight");
-var swordplay = document.getElementById("redFight");
+var hammerplay = document.getElementById("hammerplay");
+var swordplay = document.getElementById("swordplay");
 var framerate = 25;
 var map_music = document.getElementById("map_music");
 
@@ -68,8 +68,9 @@ function keyPressHammer(e){
     move_y = horizontal;
     document.getElementById("hammerplay").style.transform = "rotate(360deg)";
     }
-     if(e.keyCode == 32) {//attack?
-         
+     if(e.keyCode == 32) {//attack
+         var sound = document.getElementById("");
+    sound.play();
      }
       if(e.keyCode == 66) { // attack?
        
@@ -138,6 +139,10 @@ function keyPressSword(e){
         horizontal2 = -1.5;
     move_y2 = horizontal2;
         document.getElementById("swordplay").style.transform = "rotate(360deg)";
+    }
+    if(e.keyCode == 96){
+         var sound = document.getElementById("");
+    sound.play();
     }
    moveSword();
    }
