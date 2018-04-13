@@ -31,10 +31,10 @@ button{
     height: auto;
     width: 140px;
     margin-left: calc(50% - 70px);
+    background-color: mediumaquamarine;
     border-width: thick;
     border-color: green;
-    background-color: mediumaquamarine;
-    background-image: url(images/RoundButton.gif)
+    border-radius: 120px;
 }
 #solo{
     z-index: 5;
