@@ -1,3 +1,7 @@
 p{
     color: red;
 }
+#start{
+    position: absolute;
+    z-index: 1;
+}
