@@ -104,7 +104,7 @@ function keyPressHammer(e){
      killReach();
      killReachBoss();
      killReach2();
-     document.getElementById("ham").innerHTML = "hammer: " + point_hammer;
+     document.getElementById("ham").innerHTML = "Hammer: " + point_hammer;
                 
          
      }
@@ -186,7 +186,7 @@ function keyPressSword(e){
      killReach1();
      killReachBoss1();
      killReach3();
-     document.getElementById("sor").innerHTML = "sword: " + point_sword;
+     document.getElementById("sor").innerHTML = "Sword: " + point_sword;
         
     }
    moveSword();
