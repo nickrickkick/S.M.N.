@@ -18,6 +18,9 @@ var speed = 0;
 var horizontal = 0;
 var speed2 = 0;
 var horizontal2 = 0;
+var enemys = [];
+var sword_hit;
+var hammer_hit;
 
 var main_x = document.getElementById("hammerplay"), main_y = document.getElementById("hammerplay"), move_x = 0 , move_y = 0;
 var main_x2 =  document.getElementById("swordplay"), main_y2 =  document.getElementById("swordplay"), move_x2 = 0, move_y2 = 0;
@@ -248,14 +251,37 @@ function draw(){
        context.save();
       context.clearRect(0,0,game.width,game.height);
       
+       for(var q= 0; q < enemys.length; q++){
+         var ene = enemys[q];
+         ene.x -= 0.5;
+          context.drawImage(ene.image, ene.x + game.width/2, ene.y + game.height/2);
+             }
+      
      context.drawImage(hammerplay, game.width/2 + main_x, game.height/2 + main_y );
        context.drawImage(swordplay, game.width/2 + main_x, game.height/2 + main_y );
        
           context.restore();
   
  }
+ 
+  function spawnEnemy(){
+    var enemyi = document.createElement("div");
+    enemyi.id = "enemy";
+    enemyi.style.zIndex = "7";
+    
+  //  document.getElementById("game").a
+    
+ var c = Math.random() * game.height - game.height/2;
+  // enemyi.push({ x: 50, y:c});
+  
+   document.getElementById("game").appendChild(enemyi);
+    
+}
+
 
 function gameloop(){
+    
+// document.getElementById("game").r   
  
     moveHammer();
      
@@ -311,6 +337,7 @@ function init() {
      game = document.getElementById("space");
      if (game && game.getContext) {
     context = game.getContext('2d');
+      setInterval(spawnEnemy, 1500);
     setInterval(this.gameLoop,1000/25);
     window.canvas = document.getElementById("space");
     window.ctx_1 = game.getContext("2d");
