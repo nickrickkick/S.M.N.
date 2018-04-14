@@ -77,4 +77,5 @@ button{
 }
 #space{
     background-image: url(images/background.gif);
+    z-index: inherit;
 }
