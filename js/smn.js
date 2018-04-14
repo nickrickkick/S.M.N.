@@ -179,9 +179,9 @@ function keyPressSword(e){
      window.setTimeout(soram, 333);
      createSwordHit();
      window.setTimeout(shoosHit, 1000)
-     killReach();
-     killReachBoss();
-     killReach2();
+     killReach1();
+     killReachBoss1();
+     killReach3();
          var sound = document.getElementById("swordz");
     sound.play();
     }
@@ -425,6 +425,12 @@ function draw(){
                   
             }
         }
+    }
+ }
+ 
+  function killReach1(){
+ 
+    for(var i = 0; i < enemys.length; i++){
          for(var b = 0; b < swinger.length; b++){
             var rect3 = swinger[b].getBoundingClientRect(); var rect4 = enemys[i].getBoundingClientRect(); 
             var overlap2 = !(rect3.right < rect4.left || 
@@ -442,9 +448,7 @@ function draw(){
 }
 
 function killReach2(){
- 
- 
- 
+
     for(var u = 0; u < enemyz.length; u++){
         for(var a = 0; a < hitter.length; a++){
             var rect1 = hitter[a].getBoundingClientRect(); var rect2 = enemyz[u].getBoundingClientRect(); 
@@ -459,6 +463,11 @@ function killReach2(){
                   point_hammer += 2;
             }
         }
+    }
+}
+function killReach3(){
+
+    for(var u = 0; u < enemyz.length; u++){
          for(var b = 0; b < swinger.length; b++){
             var rect3 = swinger[b].getBoundingClientRect(); var rect4 = enemyz[u].getBoundingClientRect(); 
             var overlap2 = !(rect3.right < rect4.left || 
@@ -476,9 +485,7 @@ function killReach2(){
 }
  
   function killReachBoss(){
- 
- 
- 
+
     for(var k = 0; k < bosses.length; k++){
         for(var a = 0; a < hitter.length; a++){
             var rect1 = hitter[a].getBoundingClientRect(); var rect2 = bosses[k].getBoundingClientRect(); 
@@ -498,6 +505,10 @@ function killReach2(){
                   
             }
         }
+    }
+    function killReachBoss1(){
+
+    for(var k = 0; k < bosses.length; k++){
          for(var b = 0; b < swinger.length; b++){
             var rect3 = swinger[b].getBoundingClientRect(); var rect4 = bosses[k].getBoundingClientRect(); 
             var overlap2 = !(rect3.right < rect4.left || 
@@ -557,8 +568,8 @@ function gameloop(){
      
    
     solo.onclick = function(){
-        document.getElementById("solo").style.zIndex = "1"
-        document.getElementById("start").style.zIndex = "1";
+        document.getElementById("solo").style.visibility = "hidden"
+        document.getElementById("start").style.visibility = "hidden";
          document.getElementById("canvas_wrap").style.zIndex = "2";
          document.getElementById("play").style.zIndex = "7";
           document.getElementById("background_music").pause();
