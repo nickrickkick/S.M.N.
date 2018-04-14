@@ -13,7 +13,7 @@ function gameLogic(){
      //   for(var c = 0; c < sword_hit.length; c++){
      //         if(Math.abs(sword_hit[c].x - enemys[i].x) <= 32 && sword_hit[c].y - enemys[i].y <= 32 &&  sword_hit[c].y - enemys[i].y >= -1){
                 
-      //            document.getElementById("game").removeChild(enemys[i]);
+                  document.getElementById("game").removeChild(enemys[i]);
       //      }
             
      //   }

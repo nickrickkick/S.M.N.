@@ -176,13 +176,15 @@ function keyPressSword(e){
     if(e.keyCode == 96){
         document.getElementById("swordplay").style.backgroundImage = "url('images/swordAttack.gif')";
      window.setTimeout(soram, 333);
+      var sound = document.getElementById("swordz");
+    sound.play();
      createSwordHit();
      window.setTimeout(shoosHit, 1000)
+     
      killReach1();
      killReachBoss1();
      killReach3();
-         var sound = document.getElementById("swordz");
-    sound.play();
+        
     }
    moveSword();
  //  console.log("keypresshammer time: " + (new Date().getTime() - t));
@@ -294,7 +296,7 @@ function moveHammer(){
    var y2 = sst + f;
    
    swordHit = document.createElement("div");
-   swordHit.classList.add("hit");
+   swordHit.classList.add("swing");
    swordHit.style.zIndex = "7";
    swordHit.style.top =  (y2).toString() + "px";
    swordHit.style.left =  (x2).toString() + "px";
@@ -430,14 +432,14 @@ function draw(){
   function killReach1(){
  
     for(var i = 0; i < enemys.length; i++){
-         for(var b = 0; b < swinger.length; b++){
-            var rect3 = swinger[b].getBoundingClientRect(); var rect4 = enemys[i].getBoundingClientRect(); 
-            var overlap2 = !(rect3.right < rect4.left || 
-                rect3.left > rect4.right || 
-                rect3.bottom < rect4.top || 
-                rect3.top > rect4.bottom)
+         for(var a = 0; a < swinger.length; a++){
+            var rect1 = swinger[a].getBoundingClientRect(); var rect2 = enemys[i].getBoundingClientRect(); 
+            var overlap = !(rect1.right < rect2.left || 
+                rect1.left > rect2.right || 
+                rect1.bottom < rect2.top || 
+                rect1.top > rect2.bottom)
                 
-                if(overlap2){
+                if(overlap){
                     document.getElementById("game").removeChild(enemys[i]);
                     point_sword++;
                 }
