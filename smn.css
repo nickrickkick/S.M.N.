@@ -1,7 +1,7 @@
 #game{
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: 1200px;
+    height: 900px;
     margin: auto;
 }
 #start{
@@ -42,16 +42,6 @@ button{
     z-index: 5;
     margin-top: 300px;
 }
-#resume{
-    z-index: 2;
-    margin-top: 300px;
-    z-index: inherit;
-}
-#exit{
-    z-index: 2;
-    margin-top: 500px;
-    z-index: inherit;
-}
 .player{
     width: 75px;
     height: 75px;
@@ -72,14 +62,8 @@ button{
 #space{
     background-image: url(images/background.gif);
     z-index: inherit;
-    width: 100%;
-    height: 100%;
 }
-#canvas_wrap{
-    z-index: 2;
-    width: 100%;
-    height: 100%;
-}
+
 .enemy{
     background-image: url(images/goblinSpawning.gif);
     position: absolute;

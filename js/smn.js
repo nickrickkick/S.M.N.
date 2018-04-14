@@ -17,7 +17,6 @@ var hammerHit;
 var active = false;
 var solo;
 var boss_hpc;
-var resume;
 var over = false;
 var speed = 0;
 var horizontal = 0;
@@ -576,19 +575,6 @@ function gameloop(){
      var sound2 = document.getElementById("epic_music");
          sound2.play();
     }
-    
-    resume.onclick = function(){
-    active = !active;
-};
-
- if(active == false){
-     document.getElementById("space").style.zIndex = "6";
-         document.getElementById("resume").style.zIndex = "6";
-          document.getElementById("exit").style.zIndex = "6";
-    }else {
-        document.getElementById("resume").style.zIndex = "-2";
-        document.getElementById("exit").style.zIndex = "-2";
-    } 
 
 function pause(e){
     if(e.keyCode == 222){
@@ -615,7 +601,6 @@ function pause(e){
 
 function init() {
      solo = document.getElementById("solo");
-     resume = document.getElementById("resume");
      game = document.getElementById("space");
      if (game && game.getContext) {
     context = game.getContext('2d');
