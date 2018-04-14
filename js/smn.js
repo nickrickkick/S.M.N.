@@ -23,7 +23,6 @@ var horizontal2 = 0;
 var enemys = [];
 var sword_hit;
 var hammer_hit;
-var hamam = false;
 var main_x = document.getElementById("hammerplay"), main_y = document.getElementById("hammerplay"), move_x = 0 , move_y = 0;
 var main_x2 =  document.getElementById("swordplay"), main_y2 =  document.getElementById("swordplay"), move_x2 = 0, move_y2 = 0;
 
@@ -199,10 +198,7 @@ function soram(){
 }
 
 function hamam(){
-     document.getElementById("hammerplay").style.backgroundImage = "url('images/hammerStand.gif')";
-        hamam = false;
-    
-    
+     document.getElementById("hammerplay").style.backgroundImage = "url('images/hammerStand.gif')";    
 }
 
 function moveHammer(){
@@ -341,7 +337,6 @@ function gameloop(){
    
     solo.onclick = function(){
         document.getElementById("solo").style.zIndex = "1"
-         document.getElementById("co-op").style.zIndex = "1"
         document.getElementById("start").style.zIndex = "1";
          document.getElementById("canvas_wrap").style.zIndex = "2";
          document.getElementById("play").style.zIndex = "7";
@@ -392,7 +387,6 @@ function init() {
      game = document.getElementById("space");
      if (game && game.getContext) {
     context = game.getContext('2d');
-    // setInterval(hamam, 1000);
     setInterval(gameLogic, 1000/25 )
       setInterval(spawnEnemy, 30000);
     setInterval(this.gameLoop,1000/25);
