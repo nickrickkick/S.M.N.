@@ -3,6 +3,7 @@
     <head>
          <link href="smn.css" rel="stylesheet">
          <script type="text/javascript" src="js/smn.js"></script>
+          <script type="text/javascript" src="js/gameLogic.js"></script>
     </head>
     
     <body>
@@ -14,10 +15,13 @@
             </div>
             <div class="screen" id="start">
                 
-<!--                <audio id="background_music" autoplay loop>
+                <audio id="background_music" autoplay loop>
                    <source src="music/opener.mp3" type="audio/mpeg">
                </audio> 
--->
+               
+
+             
+            
             </div>
             <div class="screen" id="pause">
                 <button id="resume">Resume</button>
@@ -33,5 +37,8 @@
                 <canvas id="space" width="1200" height="900"></canvas>
             </div>
         </div>
+        <audio id="hammer">
+        <source src="music/hammer.mp3" type="audio/mpeg">
+    </audio>
     </body>
 </html>

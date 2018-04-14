@@ -11,6 +11,8 @@ var map; // background
 var context;
 var player1;
 var player2;
+var hammer = [{image:new Image, x: main_x, y:main_y}];
+var hammerHit;
 var active = false;
 var solo;
 var resume;
@@ -82,8 +84,9 @@ function keyPressHammer(e){
    
     }
      if(e.keyCode == 32) {//attack
-         var sound = document.getElementById("");
+          var sound = document.getElementById("hammer");
     sound.play();
+     createHammerHit();
      }
      
     moveHammer();
@@ -112,9 +115,7 @@ function keyReleaseHammer(e){
          
        //  document.getElementById("hammerplay").style.transform = "rotate(180deg)";
     }
-     if(e.keyCode == 32) {
-        
-     }
+   
   // console.log("keypresshammer time: " + (new Date().getTime() - t));
 }
 function keyPressSword(e){
@@ -213,8 +214,20 @@ function moveHammer(){
              document.getElementById("hammerplay").style.top = (y).toString() + "px";
              
          }
+ 
     
    
+}
+
+        
+    function createHammerHit(){
+   hammerHit = new Image;
+   hammerHit.src = "images/hammer_hit.gif";
+   
+   hammer.push({image:hammerHit, x:main_x, y:main_y});
+   return hammerHit;
+    
+    
 }
 function moveSword(){
       q += move_x2;
@@ -251,11 +264,15 @@ function draw(){
        context.save();
       context.clearRect(0,0,game.width,game.height);
       
-       for(var q= 0; q < enemys.length; q++){
-         var ene = enemys[q];
-         ene.x -= 0.5;
-          context.drawImage(ene.image, ene.x + game.width/2, ene.y + game.height/2);
-             }
+      for(var i = 0; i < hammer.length; i++){
+        var bluemiss =  hammer[i];
+        
+          context.drawImage(bluemiss.image, game.width/2 + bluemiss.x, game.height/2 + bluemiss.y );
+     }
+            hammer.splice(0, hammer.length - 15);
+            
+      
+      
       
      context.drawImage(hammerplay, game.width/2 + main_x, game.height/2 + main_y );
        context.drawImage(swordplay, game.width/2 + main_x, game.height/2 + main_y );
