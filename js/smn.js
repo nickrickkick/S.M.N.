@@ -23,7 +23,7 @@ var horizontal2 = 0;
 var enemys = [];
 var sword_hit;
 var hammer_hit;
-
+var hamam = false;
 var main_x = document.getElementById("hammerplay"), main_y = document.getElementById("hammerplay"), move_x = 0 , move_y = 0;
 var main_x2 =  document.getElementById("swordplay"), main_y2 =  document.getElementById("swordplay"), move_x2 = 0, move_y2 = 0;
 
@@ -84,7 +84,19 @@ function keyPressHammer(e){
    
     }
      if(e.keyCode == 32) {//attack
-         hammerplay.style.backgroundImage = "images/hammerAttack.gif"
+     document.getElementById("hammerplay").style.backgroundImage = "url('images/hammerAttack.gif')";
+     window.setTimeout(hamam, 1000);
+   //  if(hamam == false){
+   //       document.getElementById("hammerplay").style.backgroundImage = "url('images/hammerAttack.gif')";
+        
+   //        hamam = true;
+ //    }
+ //    else{
+ //         document.getElementById("hammerplay").style.backgroundImage = "url('images/hammerStand.gif')";
+ //        hamam = false
+  //   }
+        
+          
           var sound = document.getElementById("hammer");
     sound.play();
      createHammerHit();
@@ -158,6 +170,8 @@ function keyPressSword(e){
         document.getElementById("swordplay").style.transform = "rotate(180deg)";
     }
     if(e.keyCode == 96){
+        document.getElementById("swordplay").style.backgroundImage = "url('images/swordAttack.gif')";
+     window.setTimeout(soram, 1000);
          var sound = document.getElementById("");
     sound.play();
     }
@@ -184,6 +198,17 @@ function keyReleaseSword(e){
       //  document.getElementById("redFight").style.transform = "rotate(360deg)";
     }
    // console.log("keypresshammer time: " + (new Date().getTime() - t));
+}
+
+function soram(){
+     document.getElementById("swordplay").style.backgroundImage = "url('images/swordStand.gif')";
+}
+
+function hamam(){
+     document.getElementById("hammerplay").style.backgroundImage = "url('images/hammerStand.gif')";
+        hamam = false;
+    
+    
 }
 
 function moveHammer(){
@@ -223,14 +248,27 @@ function moveHammer(){
 
         
     function createHammerHit(){
-   hammerHit = new Image;
-   hammerHit.src = "images/hammer_hit.gif";
-   
-   hammer.push({image:hammerHit, x:main_x, y:main_y});
-   return hammerHit;
+   hammerHit = document.createElement("div");
+   hammerHit.classList.add("hit");
     
     
 }
+
+function spawnEnemy(){
+    var enemyi = document.createElement("div");
+    enemyi.classList.add("enemy");
+    enemyi.style.zIndex = "7";
+    enemyi.style.top = "" + Math.floor(Math.random() * game.height/2) + "px";
+    enemyi.style.left =  "" + Math.floor(Math.random() * game.width/2) + "px";
+  //  document.getElementById("game").a
+    
+
+  // enemyi.push({ x: 50, y:c});
+  
+   document.getElementById("game").appendChild(enemyi);
+    
+}
+
 function moveSword(){
       q += move_x2;
       f += move_y2;
@@ -283,29 +321,18 @@ function draw(){
   
  }
  
-  function spawnEnemy(){
-    var enemyi = document.createElement("div");
-    enemyi.classList.add("enemy");
-    enemyi.style.zIndex = "7";
-    enemyi.style.top = "" + Math.floor(Math.random() * game.height/2) + "px";
-    enemyi.style.left =  "" + Math.floor(Math.random() * game.width/2) + "px";
-  //  document.getElementById("game").a
-    
-
-  // enemyi.push({ x: 50, y:c});
   
-   document.getElementById("game").appendChild(enemyi);
-    
-}
 
 
 function gameloop(){
     
-// document.getElementById("game").r   
+  
  
     moveHammer();
      
     moveSword();
+    
+     
    
     solo.onclick = function(){
         document.getElementById("solo").style.zIndex = "1"
@@ -360,6 +387,8 @@ function init() {
      game = document.getElementById("space");
      if (game && game.getContext) {
     context = game.getContext('2d');
+    // setInterval(hamam, 1000);
+    setInterval(gameLogic, 1000/25 )
       setInterval(spawnEnemy, 30000);
     setInterval(this.gameLoop,1000/25);
     window.canvas = document.getElementById("space");
