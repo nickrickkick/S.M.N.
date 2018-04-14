@@ -32,7 +32,7 @@ var framerate = 25;
 var map_music = document.getElementById("map_music");
 var t; 
 
- 
+var hitter =  document.getElementsByClassName("hit");
    
 function keyPressHammer(e){
   
@@ -93,6 +93,7 @@ function keyPressHammer(e){
           var sound = document.getElementById("hammer");
     sound.play();
      createHammerHit();
+     window.setTimeout(cutHit, 1000)
          
      }
      
@@ -191,6 +192,12 @@ function keyReleaseSword(e){
       //  document.getElementById("redFight").style.transform = "rotate(360deg)";
     }
    // console.log("keypresshammer time: " + (new Date().getTime() - t));
+}
+
+function cutHit(){
+    for(var i = 0; i < hitter.length; i++){
+     document.getElementById("game").removeChild(hitter[i]);
+    }
 }
 
 function soram(){
