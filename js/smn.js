@@ -104,6 +104,8 @@ function keyPressHammer(e){
      killReach();
      killReachBoss();
      killReach2();
+     document.getElementById("ham").innerHTML = "hammer: " + point_hammer;
+                
          
      }
      
@@ -184,6 +186,7 @@ function keyPressSword(e){
      killReach1();
      killReachBoss1();
      killReach3();
+     document.getElementById("sor").innerHTML = "sword: " + point_sword;
         
     }
    moveSword();
@@ -526,8 +529,7 @@ function killReach3(){
                       point_sword += 100;
                    }
                 }
-                document.getElementById("ham").innerHTML = "hammer" + point_hammer;
-                document.getElementById("sor").innerHTML = "sword" + point_sword;
+               
     
 }
 }
@@ -557,7 +559,7 @@ function killReach3(){
 
 function gameloop(){
     
-    
+     
     
   if(boss_hp <= 0){
       document.getElementById("winner").style.zIndex = "10"

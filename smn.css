@@ -110,8 +110,14 @@ button{
     z-index:-2;
 }
 #ham{
+    top:0px;
+    left:0px;
+    position: absolute;
     z-index: 10;
 }
 #sor{
+    top:0px;
+    right:0px;
+    position: absolute;
     z-index: 10;
 }
