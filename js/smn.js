@@ -84,9 +84,11 @@ function keyPressHammer(e){
    
     }
      if(e.keyCode == 32) {//attack
+         hammerplay.style.backgroundImage = "images/hammerAttack.gif"
           var sound = document.getElementById("hammer");
     sound.play();
      createHammerHit();
+         
      }
      
     moveHammer();
