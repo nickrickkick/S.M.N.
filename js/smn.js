@@ -26,16 +26,16 @@ var hammerplay = document.getElementById("hammerplay");
 var swordplay = document.getElementById("swordplay");
 var framerate = 25;
 var map_music = document.getElementById("map_music");
-
-
+var t; 
    
 function keyPressHammer(e){
-   
-    
+  
+ 
+  //    t = new Date().getTime();
     
            if(e.keyCode == 68){
       
-      console.log(hammerplay);
+   //   console.log(hammerplay);
      
       if (hammerplay == null){
           hammerplay = document.getElementById("hammerplay");
@@ -45,16 +45,20 @@ function keyPressHammer(e){
           main_x = document.getElementById("hammerplay");
          
       }
+     
+      document.getElementById("hammerplay").style.transform = "rotate(-90deg)";
+     
          speed = 1.5;
         move_x = speed;
       
-     document.getElementById("hammerplay").style.transform = "rotate(-90deg)";
+     
            }
     
     if(e.keyCode == 65){
+     document.getElementById("hammerplay").style.transform = "rotate(90deg)";
         speed = -1.5;
     move_x = speed;
-    document.getElementById("hammerplay").style.transform = "rotate(90deg)";
+   
     }
     
     if(e.keyCode == 83){
@@ -62,15 +66,17 @@ function keyPressHammer(e){
           main_y = document.getElementById("hammerplay");
     
       }
+       document.getElementById("hammerplay").style.transform = "rotate(360deg)";
         horizontal = 1.5;
     move_y = horizontal;
-    document.getElementById("hammerplay").style.transform = "rotate(360deg)";
+   
     
     }
     if(e.keyCode == 87){
+         document.getElementById("hammerplay").style.transform = "rotate(180deg)";
         horizontal = -1.5;
     move_y = horizontal;
-    document.getElementById("hammerplay").style.transform = "rotate(180deg)";
+   
     }
      if(e.keyCode == 32) {//attack
          var sound = document.getElementById("");
@@ -79,9 +85,11 @@ function keyPressHammer(e){
      
     moveHammer();
     
+   //  console.log("keypresshammer time: " + (new Date().getTime() - t));
 }
 
 function keyReleaseHammer(e){
+    // t = new Date().getTime();
     
     if(e.keyCode == 68){
         move_x = 0;
@@ -104,9 +112,10 @@ function keyReleaseHammer(e){
      if(e.keyCode == 32) {
         
      }
- 
+  // console.log("keypresshammer time: " + (new Date().getTime() - t));
 }
 function keyPressSword(e){
+ //   t = new Date().getTime();
    
        if(e.keyCode == 39){
            
@@ -147,9 +156,11 @@ function keyPressSword(e){
     sound.play();
     }
    moveSword();
+ //  console.log("keypresshammer time: " + (new Date().getTime() - t));
    
 }
 function keyReleaseSword(e){
+    // t = new Date().getTime();
     if(e.keyCode == 39){
         move_x2 = 0;
       //  document.getElementById("redFight").style.transform = "rotate(90deg)";
@@ -166,7 +177,7 @@ function keyReleaseSword(e){
         move_y2 = 0;
       //  document.getElementById("redFight").style.transform = "rotate(360deg)";
     }
-   
+   // console.log("keypresshammer time: " + (new Date().getTime() - t));
 }
 
 function moveHammer(){
@@ -245,7 +256,11 @@ function draw(){
  }
 
 function gameloop(){
-    
+ 
+    moveHammer();
+     
+    moveSword();
+   
     solo.onclick = function(){
         document.getElementById("solo").style.zIndex = "1"
          document.getElementById("co-op").style.zIndex = "1"
@@ -296,7 +311,7 @@ function init() {
      game = document.getElementById("space");
      if (game && game.getContext) {
     context = game.getContext('2d');
-    setInterval(this.gameLoop,1000/100);
+    setInterval(this.gameLoop,1000/25);
     window.canvas = document.getElementById("space");
     window.ctx_1 = game.getContext("2d");
      window.addEventListener("keydown", keyPressSword, false);
