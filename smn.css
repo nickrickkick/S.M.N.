@@ -75,7 +75,7 @@ button{
 }
 
 .enemy{
-    background-image: url(images/goblinEnemy.gif);
+    background-image: url(images/goblinSpawning.gif);
     position: absolute;
     width:75px;
     height:75px;
@@ -83,7 +83,15 @@ button{
 }
 
 .hit{
-    background-image: url(images/hammer_hit.gif);
+    
+    position: absolute;
+    width:75px;
+    height:75px;
+    z-index: 7;
+}
+
+.swing{
+   
     position: absolute;
     width:75px;
     height:75px;

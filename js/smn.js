@@ -21,7 +21,7 @@ var horizontal = 0;
 var speed2 = 0;
 var horizontal2 = 0;
 var enemys = [];
-var sword_hit;
+var swordHit;
 var hammer_hit;
 var main_x = document.getElementById("hammerplay"), main_y = document.getElementById("hammerplay"), move_x = 0 , move_y = 0;
 var main_x2 =  document.getElementById("swordplay"), main_y2 =  document.getElementById("swordplay"), move_x2 = 0, move_y2 = 0;
@@ -33,6 +33,8 @@ var map_music = document.getElementById("map_music");
 var t; 
 
 var hitter =  document.getElementsByClassName("hit");
+var swinger =  document.getElementsByClassName("swing");
+var enemys =  document.getElementsByClassName("enemy");
    
 function keyPressHammer(e){
   
@@ -94,6 +96,7 @@ function keyPressHammer(e){
     sound.play();
      createHammerHit();
      window.setTimeout(cutHit, 1000)
+     killReach();
          
      }
      
@@ -166,7 +169,10 @@ function keyPressSword(e){
     if(e.keyCode == 96){
         document.getElementById("swordplay").style.backgroundImage = "url('images/swordAttack.gif')";
      window.setTimeout(soram, 333);
-         var sound = document.getElementById("");
+     createSwordHit();
+     window.setTimeout(shoosHit, 1000)
+     killReach2();
+         var sound = document.getElementById("swordz");
     sound.play();
     }
    moveSword();
@@ -197,6 +203,12 @@ function keyReleaseSword(e){
 function cutHit(){
     for(var i = 0; i < hitter.length; i++){
      document.getElementById("game").removeChild(hitter[i]);
+    }
+}
+
+function shoosHit(){
+    for(var i = 0; i < swinger.length; i++){
+     document.getElementById("game").removeChild(swinger[i]);
     }
 }
 
@@ -259,6 +271,24 @@ function moveHammer(){
    hammerHit.style.left =  (x).toString() + "px";
    
    document.getElementById("game").appendChild(hammerHit);
+  
+}
+
+ function createSwordHit(){
+        q += move_x2;
+      f += move_y2;
+       var zez = 500;
+  var x2 = zez + q;
+   var sst = 100;
+   var y2 = sst + f;
+   
+   swordHit = document.createElement("div");
+   swordHit.classList.add("hit");
+   swordHit.style.zIndex = "7";
+   swordHit.style.top =  (y2).toString() + "px";
+   swordHit.style.left =  (x2).toString() + "px";
+   
+   document.getElementById("game").appendChild(swordHit);
   
 }
 
@@ -329,6 +359,49 @@ function draw(){
   
  }
  
+ function killReach(){
+ 
+ 
+ 
+    for(var i = 0; i < enemys.length; i++){
+        for(var a = 0; a < hitter.length; a++){
+            var rect1 = hitter[a].getBoundingClientRect(); var rect2 = enemys[i].getBoundingClientRect(); 
+            var overlap = !(rect1.right < rect2.left || 
+                rect1.left > rect2.right || 
+                rect1.bottom < rect2.top || 
+                rect1.top > rect2.bottom)
+
+            if(overlap){
+             
+                   document.getElementById("game").removeChild(enemys[i]);
+                  
+            }
+        }
+    
+}
+}
+ 
+ function killReach2(){
+ 
+ 
+ 
+    for(var i = 0; i < enemys.length; i++){
+        for(var a = 0; a < swinger.length; a++){
+            var rect1 = swinger[a].getBoundingClientRect(); var rect2 = enemys[i].getBoundingClientRect(); 
+            var overlap = !(rect1.right < rect2.left || 
+                rect1.left > rect2.right || 
+                rect1.bottom < rect2.top || 
+                rect1.top > rect2.bottom)
+
+            if(overlap){
+             
+                   document.getElementById("game").removeChild(enemys[i]);
+                  
+            }
+        }
+    
+}
+}
   
 
 
@@ -394,8 +467,7 @@ function init() {
      game = document.getElementById("space");
      if (game && game.getContext) {
     context = game.getContext('2d');
-    setInterval(gameLogic, 1000/25 )
-      setInterval(spawnEnemy, 30000);
+      setInterval(spawnEnemy, 3000);
     setInterval(this.gameLoop,1000/25);
     window.canvas = document.getElementById("space");
     window.ctx_1 = game.getContext("2d");
