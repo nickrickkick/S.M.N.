@@ -505,6 +505,7 @@ function killReach3(){
             }
         }
     }
+  }
     function killReachBoss1(){
 
     for(var k = 0; k < bosses.length; k++){
