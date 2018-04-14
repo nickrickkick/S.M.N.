@@ -250,7 +250,9 @@ function moveHammer(){
     function createHammerHit(){
    hammerHit = document.createElement("div");
    hammerHit.classList.add("hit");
-    
+   hammerHit.style.zIndex = "7";
+   hammerHit.style.top = "" + main_y + "px";
+   hammerHit.style.left = "" + main_x + "px";
     
 }
 
