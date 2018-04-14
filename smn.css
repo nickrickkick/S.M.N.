@@ -1,7 +1,7 @@
 #game{
     position: relative;
-    width: 1200px;
-    height: 900px;
+    width: 100%;
+    height: 100%;
     margin: auto;
 }
 #start{
@@ -73,7 +73,10 @@ button{
     background-image: url(images/background.gif);
     z-index: inherit;
 }
-
+#canvas_wrap{
+    width: 100%;
+    height: 100%;
+}
 .enemy{
     background-image: url(images/goblinSpawning.gif);
     position: absolute;
