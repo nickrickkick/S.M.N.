@@ -82,6 +82,14 @@ button{
     z-index: 7;
 }
 
+.enemy2{
+    background-image: url(images/spiderNormal.gif);
+    position: absolute;
+    width:75px;
+    height:75px;
+    z-index: 7;
+}
+
 .hit{
     
     position: absolute;
@@ -96,4 +104,18 @@ button{
     width:75px;
     height:75px;
     z-index: 7;
+}
+
+.boss{
+     background-image: url(images/spiderGiant.gif);
+    position: absolute;
+    width:200px;
+    height:200px;
+    z-index: 8;
+}
+
+#winner{
+     margin-top: 300px;
+    position: absolute;
+    z-index:-2;
 }

@@ -15,7 +15,9 @@ var hammer = [{image:new Image, x: main_x, y:main_y}];
 var hammerHit;
 var active = false;
 var solo;
+var boss_hpc;
 var resume;
+var over = false;
 var speed = 0;
 var horizontal = 0;
 var speed2 = 0;
@@ -25,7 +27,7 @@ var swordHit;
 var hammer_hit;
 var main_x = document.getElementById("hammerplay"), main_y = document.getElementById("hammerplay"), move_x = 0 , move_y = 0;
 var main_x2 =  document.getElementById("swordplay"), main_y2 =  document.getElementById("swordplay"), move_x2 = 0, move_y2 = 0;
-
+var boss_hp = 1000;
 var hammerplay = document.getElementById("hammerplay");
 var swordplay = document.getElementById("swordplay");
 var framerate = 25;
@@ -35,6 +37,8 @@ var t;
 var hitter =  document.getElementsByClassName("hit");
 var swinger =  document.getElementsByClassName("swing");
 var enemys =  document.getElementsByClassName("enemy");
+var enemyz =  document.getElementsByClassName("enemy2");
+var bosses =  document.getElementsByClassName("boss");
    
 function keyPressHammer(e){
   
@@ -97,6 +101,8 @@ function keyPressHammer(e){
      createHammerHit();
      window.setTimeout(cutHit, 1000)
      killReach();
+     killReachBoss();
+     killReach2();
          
      }
      
@@ -172,6 +178,8 @@ function keyPressSword(e){
      createSwordHit();
      window.setTimeout(shoosHit, 1000)
      killReach();
+     killReachBoss();
+     killReach2();
          var sound = document.getElementById("swordz");
     sound.play();
     }
@@ -218,6 +226,10 @@ function soram(){
 
 function hamam(){
      document.getElementById("hammerplay").style.backgroundImage = "url('images/hammerStand.gif')";    
+}
+
+function over(){
+    over = true;
 }
 
 function moveHammer(){
@@ -307,6 +319,41 @@ function spawnEnemy(){
     
 }
 
+    function spawnEnemy2(){
+        
+          var enemye = document.createElement("div");
+    enemye.classList.add("enemy");
+    enemye.style.zIndex = "7";
+    enemye.style.top = "" + Math.floor(Math.random() * game.height/2) + "px";
+    enemye.style.left =  "" + Math.floor(Math.random() * game.width/2) + "px";
+  //  document.getElementById("game").a
+    
+
+  // enemyi.push({ x: 50, y:c});
+  
+    document.getElementById("game").appendChild(enemye);
+    
+    
+        }
+  
+
+
+
+function spawnBoss(){
+    var boss = document.createElement("div");
+    boss.classList.add("boss");
+    boss.style.zIndex = "8";
+    boss.style.top = "" + Math.floor(Math.random() * game.height/2) + "px";
+    boss.style.left =  "" + Math.floor(Math.random() * game.width/2) + "px";
+  //  document.getElementById("game").a
+    
+
+  // enemyi.push({ x: 50, y:c});
+  
+    document.getElementById("game").appendChild(boss);
+    
+}
+
 function moveSword(){
       q += move_x2;
       f += move_y2;
@@ -377,8 +424,8 @@ function draw(){
                   
             }
         }
-         for(var a = 0; a < swinger.length; a++){
-            var rect3 = swinger[a].getBoundingClientRect(); var rect4 = enemys[i].getBoundingClientRect(); 
+         for(var b = 0; b < swinger.length; b++){
+            var rect3 = swinger[b].getBoundingClientRect(); var rect4 = enemys[i].getBoundingClientRect(); 
             var overlap2 = !(rect3.right < rect4.left || 
                 rect3.left > rect4.right || 
                 rect3.bottom < rect4.top || 
@@ -390,7 +437,73 @@ function draw(){
     
 }
 }
+}
+
+function killReach2(){
  
+ 
+ 
+    for(var u = 0; u < enemyz.length; u++){
+        for(var a = 0; a < hitter.length; a++){
+            var rect1 = hitter[a].getBoundingClientRect(); var rect2 = enemyz[u].getBoundingClientRect(); 
+            var overlap = !(rect1.right < rect2.left || 
+                rect1.left > rect2.right || 
+                rect1.bottom < rect2.top || 
+                rect1.top > rect2.bottom)
+
+            if(overlap){
+             
+                   document.getElementById("game").removeChild(enemyz[u]);
+                  
+            }
+        }
+         for(var b = 0; b < swinger.length; b++){
+            var rect3 = swinger[b].getBoundingClientRect(); var rect4 = enemyz[u].getBoundingClientRect(); 
+            var overlap2 = !(rect3.right < rect4.left || 
+                rect3.left > rect4.right || 
+                rect3.bottom < rect4.top || 
+                rect3.top > rect4.bottom)
+                
+                if(overlap2){
+                    document.getElementById("game").removeChild(enemyz[u]);
+                }
+    
+}
+}
+}
+ 
+  function killReachBoss(){
+ 
+ 
+ 
+    for(var k = 0; k < bosses.length; k++){
+        for(var a = 0; a < hitter.length; a++){
+            var rect1 = hitter[a].getBoundingClientRect(); var rect2 = bosses[k].getBoundingClientRect(); 
+            var overlap = !(rect1.right < rect2.left || 
+                rect1.left > rect2.right || 
+                rect1.bottom < rect2.top || 
+                rect1.top > rect2.bottom)
+
+            if(overlap){
+             
+                   boss_hp -= 1;
+                  
+            }
+        }
+         for(var b = 0; b < swinger.length; b++){
+            var rect3 = swinger[b].getBoundingClientRect(); var rect4 = bosses[k].getBoundingClientRect(); 
+            var overlap2 = !(rect3.right < rect4.left || 
+                rect3.left > rect4.right || 
+                rect3.bottom < rect4.top || 
+                rect3.top > rect4.bottom)
+                
+                if(overlap2){
+                      boss_hp -= 1;
+                }
+    
+}
+}
+}
 // function killReach2(){
  
  
@@ -410,13 +523,15 @@ function draw(){
   //      }
     
 //}
-}
+
   
 
 
 function gameloop(){
     
-  
+  if(boss_hp <= 0){
+      document.getElementById("winner").style.zIndex = "10"
+  }
  
     moveHammer();
      
@@ -477,6 +592,9 @@ function init() {
      if (game && game.getContext) {
     context = game.getContext('2d');
       setInterval(spawnEnemy, 2500);
+      setInterval(spawnEnemy2, 3500);
+      setInterval(spawnBoss, 300000);
+     setInterval(over, 300000);
     setInterval(this.gameLoop,1000/25);
     window.canvas = document.getElementById("space");
     window.ctx_1 = game.getContext("2d");
