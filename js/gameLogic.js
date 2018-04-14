@@ -1,15 +1,18 @@
 function gameLogic(){
+  enemys =  document.getElementsByClassName("enemy");
+ 
     for(var i = 0; i < enemys.length; i++){
         for(var a = 0; a < hammer_hit.length; a++){
-            if(Math.abs(hammer_hit[a].x - enemys[i].x) <= 24 && hammer_hit[a].y - enemys[i].y <= 18 &&  hammer_hit[a].y - enemys[i].y >= -10){
-                  enemys.splice(i,1);
+            if(Math.abs(hammer_hit[a].x - enemys[i].x) <=32 && hammer_hit[a].y - enemys[i].y <= 32 &&  hammer_hit[a].y - enemys[i].y >= -10){
+             
+                   document.getElementById("game").removeChild(enemys[i])
                   
             }
         }
         for(var c = 0; c < sword_hit.length; c++){
-              if(Math.abs(sword_hit[c].x - enemys[i].x) <= 24 && sword_hit[c].y - enemys[i].y <= 18 &&  sword_hit[c].y - enemys[i].y >= -1){
-                  enemys.splice(i,1);
-                 
+              if(Math.abs(sword_hit[c].x - enemys[i].x) <= 32 && sword_hit[c].y - enemys[i].y <= 32 &&  sword_hit[c].y - enemys[i].y >= -1){
+                
+                  document.getElementById("game").removeChild(enemys[i])
             }
             
         }

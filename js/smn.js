@@ -266,12 +266,13 @@ function draw(){
  
   function spawnEnemy(){
     var enemyi = document.createElement("div");
-    enemyi.id = "enemy";
+    enemyi.classList.add("enemy");
     enemyi.style.zIndex = "7";
-    
+    enemyi.style.top = "" + Math.floor(Math.random() * game.height/2) + "px";
+    enemyi.style.left =  "" + Math.floor(Math.random() * game.width/2) + "px";
   //  document.getElementById("game").a
     
- var c = Math.random() * game.height - game.height/2;
+
   // enemyi.push({ x: 50, y:c});
   
    document.getElementById("game").appendChild(enemyi);
@@ -337,7 +338,7 @@ function init() {
      game = document.getElementById("space");
      if (game && game.getContext) {
     context = game.getContext('2d');
-      setInterval(spawnEnemy, 1500);
+      setInterval(spawnEnemy, 30000);
     setInterval(this.gameLoop,1000/25);
     window.canvas = document.getElementById("space");
     window.ctx_1 = game.getContext("2d");

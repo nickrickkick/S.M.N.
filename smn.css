@@ -78,7 +78,7 @@ button{
     z-index: inherit;
 }
 
-#enemy{
+.enemy{
     background-image: url(images/goblinEnemy.gif);
     position: absolute;
     width:75px;
