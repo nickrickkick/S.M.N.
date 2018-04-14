@@ -56,7 +56,7 @@ function keyPressHammer(e){
      
       document.getElementById("hammerplay").style.transform = "rotate(-90deg)";
      
-         speed = 1.5;
+         speed = 10;
         move_x = speed;
       
      
@@ -64,7 +64,7 @@ function keyPressHammer(e){
     
     if(e.keyCode == 65){
      document.getElementById("hammerplay").style.transform = "rotate(90deg)";
-        speed = -1.5;
+        speed = -10;
     move_x = speed;
    
     }
@@ -75,14 +75,14 @@ function keyPressHammer(e){
     
       }
        document.getElementById("hammerplay").style.transform = "rotate(360deg)";
-        horizontal = 1.5;
+        horizontal = 10;
     move_y = horizontal;
    
     
     }
     if(e.keyCode == 87){
          document.getElementById("hammerplay").style.transform = "rotate(180deg)";
-        horizontal = -1.5;
+        horizontal = -10;
     move_y = horizontal;
    
     }
@@ -141,13 +141,13 @@ function keyPressSword(e){
           main_x2 = document.getElementById("swordplay");
       }
            
-           speed2 = 1.5;
+           speed2 = 10;
         move_x2 = speed2;
         
         document.getElementById("swordplay").style.transform = "rotate(-90deg)";
     }
     if(e.keyCode == 37){
-        speed2 = -1.5;
+        speed2 = -10;
     move_x2 = speed2;
         
          document.getElementById("swordplay").style.transform = "rotate(90deg)";
@@ -156,13 +156,13 @@ function keyPressSword(e){
           if (main_y2 == null){
           main_y2 = document.getElementById("swordplay");
       }
-        horizontal2 = 1.5;
+        horizontal2 = 10;
     move_y2 = horizontal2;
         
          document.getElementById("swordplay").style.transform = "rotate(360deg)";
     }
     if(e.keyCode == 38){
-        horizontal2 = -1.5;
+        horizontal2 = -10;
     move_y2 = horizontal2;
         document.getElementById("swordplay").style.transform = "rotate(180deg)";
     }
@@ -303,7 +303,7 @@ function spawnEnemy(){
 
   // enemyi.push({ x: 50, y:c});
   
-   document.getElementById("game").appendChild(enemyi);
+    document.getElementById("game").appendChild(enemyi);
     
 }
 
@@ -476,7 +476,7 @@ function init() {
      game = document.getElementById("space");
      if (game && game.getContext) {
     context = game.getContext('2d');
-      setInterval(spawnEnemy, 3000);
+      setInterval(spawnEnemy, 2500);
     setInterval(this.gameLoop,1000/25);
     window.canvas = document.getElementById("space");
     window.ctx_1 = game.getContext("2d");
