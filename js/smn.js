@@ -4,7 +4,8 @@ var q = 0;
 var f = 0;
 var c = 0;
 var z = 0;
-
+var point_hammer = 0;
+var point_sword = 0;
 var game; //canvas
 var battle; //background
 var map; // background
@@ -228,9 +229,7 @@ function hamam(){
      document.getElementById("hammerplay").style.backgroundImage = "url('images/hammerStand.gif')";    
 }
 
-function over(){
-    over = true;
-}
+
 
 function moveHammer(){
   c += move_x;
@@ -308,8 +307,8 @@ function spawnEnemy(){
     var enemyi = document.createElement("div");
     enemyi.classList.add("enemy");
     enemyi.style.zIndex = "7";
-    enemyi.style.top = "" + Math.floor(Math.random() * game.height/2) + "px";
-    enemyi.style.left =  "" + Math.floor(Math.random() * game.width/2) + "px";
+    enemyi.style.top = "" + Math.floor(Math.random() * (game.height-20)) + "px";
+    enemyi.style.left =  "" + Math.floor(Math.random() * (game.width-20)) + "px";
   //  document.getElementById("game").a
     
 
@@ -322,10 +321,10 @@ function spawnEnemy(){
     function spawnEnemy2(){
         
           var enemye = document.createElement("div");
-    enemye.classList.add("enemy");
+    enemye.classList.add("enemy2");
     enemye.style.zIndex = "7";
-    enemye.style.top = "" + Math.floor(Math.random() * game.height/2) + "px";
-    enemye.style.left =  "" + Math.floor(Math.random() * game.width/2) + "px";
+    enemye.style.top = "" + Math.floor(Math.random() * (game.height-20)) + "px";
+    enemye.style.left =  "" + Math.floor(Math.random() * (game.width-20)) + "px";
   //  document.getElementById("game").a
     
 
@@ -343,8 +342,8 @@ function spawnBoss(){
     var boss = document.createElement("div");
     boss.classList.add("boss");
     boss.style.zIndex = "8";
-    boss.style.top = "" + Math.floor(Math.random() * game.height/2) + "px";
-    boss.style.left =  "" + Math.floor(Math.random() * game.width/2) + "px";
+    boss.style.top = "" + Math.floor(Math.random() * (game.height-40)) + "px";
+    boss.style.left =  "" + Math.floor(Math.random() * (game.width-40)) + "px";
   //  document.getElementById("game").a
     
 
@@ -421,6 +420,7 @@ function draw(){
             if(overlap){
              
                    document.getElementById("game").removeChild(enemys[i]);
+                   point_hammer++;
                   
             }
         }
@@ -433,6 +433,7 @@ function draw(){
                 
                 if(overlap2){
                     document.getElementById("game").removeChild(enemys[i]);
+                    point_sword++;
                 }
     
 }
@@ -454,7 +455,7 @@ function killReach2(){
             if(overlap){
              
                    document.getElementById("game").removeChild(enemyz[u]);
-                  
+                  point_hammer += 2;
             }
         }
          for(var b = 0; b < swinger.length; b++){
@@ -466,6 +467,7 @@ function killReach2(){
                 
                 if(overlap2){
                     document.getElementById("game").removeChild(enemyz[u]);
+                    point_sword += 2;
                 }
     
 }
@@ -487,6 +489,7 @@ function killReach2(){
             if(overlap){
              
                    boss_hp -= 1;
+                   point_hammer += 5;
                   
             }
         }
@@ -499,6 +502,7 @@ function killReach2(){
                 
                 if(overlap2){
                       boss_hp -= 1;
+                      point_sword +=5
                 }
     
 }
@@ -528,6 +532,8 @@ function killReach2(){
 
 
 function gameloop(){
+    
+    
     
   if(boss_hp <= 0){
       document.getElementById("winner").style.zIndex = "10"
