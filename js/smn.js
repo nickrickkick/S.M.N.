@@ -43,6 +43,7 @@ var bosses =  document.getElementsByClassName("boss");
    
 function keyPressHammer(e){
   
+  
  
   //    t = new Date().getTime();
     
@@ -489,7 +490,11 @@ function killReach2(){
             if(overlap){
              
                    boss_hp -= 1;
-                   point_hammer += 5;
+                   point_hammer += 3;
+                   if(boss_hp <= 0){
+                      document.getElementById("game").removeChild(bosses[k]);  
+                      point_hammer += 100;
+                   }
                   
             }
         }
@@ -502,8 +507,14 @@ function killReach2(){
                 
                 if(overlap2){
                       boss_hp -= 1;
-                      point_sword +=5
+                      point_sword +=3
+                        if(boss_hp <= 0){
+                      document.getElementById("game").removeChild(bosses[k]);  
+                      point_sword += 100;
+                   }
                 }
+                document.getElementById("ham").innerHTML = "hammer" + point_hammer;
+                document.getElementById("sor").innerHTML = "sword" + point_sword;
     
 }
 }
