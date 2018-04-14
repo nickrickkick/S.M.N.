@@ -32,6 +32,8 @@ var swordplay = document.getElementById("swordplay");
 var framerate = 25;
 var map_music = document.getElementById("map_music");
 var t; 
+
+ 
    
 function keyPressHammer(e){
   
@@ -86,15 +88,7 @@ function keyPressHammer(e){
      if(e.keyCode == 32) {//attack
      document.getElementById("hammerplay").style.backgroundImage = "url('images/hammerAttack.gif')";
      window.setTimeout(hamam, 1000);
-   //  if(hamam == false){
-   //       document.getElementById("hammerplay").style.backgroundImage = "url('images/hammerAttack.gif')";
-        
-   //        hamam = true;
- //    }
- //    else{
- //         document.getElementById("hammerplay").style.backgroundImage = "url('images/hammerStand.gif')";
- //        hamam = false
-  //   }
+     
         
           
           var sound = document.getElementById("hammer");
@@ -171,7 +165,7 @@ function keyPressSword(e){
     }
     if(e.keyCode == 96){
         document.getElementById("swordplay").style.backgroundImage = "url('images/swordAttack.gif')";
-     window.setTimeout(soram, 1000);
+     window.setTimeout(soram, 333);
          var sound = document.getElementById("");
     sound.play();
     }
@@ -212,9 +206,9 @@ function hamam(){
 }
 
 function moveHammer(){
-   c += move_x;
+  c += move_x;
      z += move_y;
-      var res = 1175;
+      var res = 1000;
   var x = res + c;
    var str = 600;
    var y = str + z;
@@ -248,12 +242,21 @@ function moveHammer(){
 
         
     function createHammerHit(){
+        c += move_x;
+     z += move_y;
+      var res = 1000;
+  var x = res + c;
+   var str = 600;
+   var y = str + z;
+   
    hammerHit = document.createElement("div");
    hammerHit.classList.add("hit");
    hammerHit.style.zIndex = "7";
-   hammerHit.style.top = "" + main_y + "px";
-   hammerHit.style.left = "" + main_x + "px";
-    
+   hammerHit.style.top =  (y).toString() + "px";
+   hammerHit.style.left =  (x).toString() + "px";
+   
+   document.getElementById("game").appendChild(hammerHit);
+  
 }
 
 function spawnEnemy(){
