@@ -171,7 +171,7 @@ function keyPressSword(e){
      window.setTimeout(soram, 333);
      createSwordHit();
      window.setTimeout(shoosHit, 1000)
-     killReach2();
+     killReach();
          var sound = document.getElementById("swordz");
     sound.play();
     }
@@ -377,30 +377,39 @@ function draw(){
                   
             }
         }
+         for(var a = 0; a < swinger.length; a++){
+            var rect3 = swinger[a].getBoundingClientRect(); var rect4 = enemys[i].getBoundingClientRect(); 
+            var overlap2 = !(rect3.right < rect4.left || 
+                rect3.left > rect4.right || 
+                rect3.bottom < rect4.top || 
+                rect3.top > rect4.bottom)
+                
+                if(overlap2){
+                    document.getElementById("game").removeChild(enemys[i]);
+                }
     
 }
 }
  
- function killReach2(){
+// function killReach2(){
  
  
  
-    for(var i = 0; i < enemys.length; i++){
-        for(var a = 0; a < swinger.length; a++){
-            var rect1 = swinger[a].getBoundingClientRect(); var rect2 = enemys[i].getBoundingClientRect(); 
-            var overlap = !(rect1.right < rect2.left || 
-                rect1.left > rect2.right || 
-                rect1.bottom < rect2.top || 
-                rect1.top > rect2.bottom)
+//    for(var b = 0; b < enemys.length; i++){
+//        for(var a = 0; a < swinger.length; a++){
+ //           var overlap = !(rect3.right < rect4.left || 
+//                rect3.left > rect4.right || 
+//                rect3.bottom < rect4.top || 
+//                rect3.top > rect4.bottom)
 
-            if(overlap){
+ //           if(overlap){
              
-                   document.getElementById("game").removeChild(enemys[i]);
-                  
-            }
-        }
+    //               document.getElementById("game").removeChild(enemys[i]);
+ //                 
+  //          }
+  //      }
     
-}
+//}
 }
   
 
