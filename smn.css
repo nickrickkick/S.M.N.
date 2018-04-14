@@ -42,16 +42,6 @@ button{
     z-index: 5;
     margin-top: 300px;
 }
-#resume{
-    z-index: 2;
-    margin-top: 300px;
-    z-index: inherit;
-}
-#exit{
-    z-index: 2;
-    margin-top: 500px;
-    z-index: inherit;
-}
 .player{
     width: 75px;
     height: 75px;
