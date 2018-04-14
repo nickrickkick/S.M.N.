@@ -43,40 +43,40 @@ function keyPressHammer(e){
      
         if (main_x == null){
           main_x = document.getElementById("hammerplay");
+         
       }
          speed = 1.5;
         move_x = speed;
       
-    //  document.getElementById("hammerplay").style.transform = "rotate(90deg)";
+     document.getElementById("hammerplay").style.transform = "rotate(-90deg)";
            }
     
     if(e.keyCode == 65){
         speed = -1.5;
     move_x = speed;
-  //  document.getElementById("hammerplay").style.transform = "rotate(-90deg)";
+    document.getElementById("hammerplay").style.transform = "rotate(90deg)";
     }
     
     if(e.keyCode == 83){
           if (main_y == null){
           main_y = document.getElementById("hammerplay");
+    
       }
         horizontal = 1.5;
     move_y = horizontal;
-   
-  //  document.getElementById("hammerplay").style.transform = "rotate(180deg)";
+    document.getElementById("hammerplay").style.transform = "rotate(360deg)";
+    
     }
     if(e.keyCode == 87){
         horizontal = -1.5;
     move_y = horizontal;
-  //  document.getElementById("hammerplay").style.transform = "rotate(360deg)";
+    document.getElementById("hammerplay").style.transform = "rotate(180deg)";
     }
      if(e.keyCode == 32) {//attack
          var sound = document.getElementById("");
     sound.play();
      }
-      if(e.keyCode == 66) { // attack?
-       
-     }
+     
     moveHammer();
     
 }
@@ -85,24 +85,24 @@ function keyReleaseHammer(e){
     
     if(e.keyCode == 68){
         move_x = 0;
-      //  document.getElementById("blueFight").style.transform = "rotate(90deg)";
+   //     document.getElementById("hammerplay").style.transform = "rotate(-90deg)";
     }
       if(e.keyCode == 65){
         move_x = 0;
-        
+     //    document.getElementById("hammerplay").style.transform = "rotate(90deg)";
     }
       if(e.keyCode == 83){
         move_y = 0;
     
-       //  document.getElementById("blueFight").style.transform = "rotate(180deg)";
+      //   document.getElementById("hammerplay").style.transform = "rotate(360deg)";
     }
       if(e.keyCode == 87){
         move_y = 0;
          
-        // document.getElementById("blueFight").style.transform = "rotate(360deg)";
+       //  document.getElementById("hammerplay").style.transform = "rotate(180deg)";
     }
      if(e.keyCode == 32) {
-       //  document.getElementsByClassName("blueFight").style.backgroundImage = "url('images/BlueBoardSolo.png')"
+        
      }
  
 }
@@ -120,13 +120,13 @@ function keyPressSword(e){
            speed2 = 1.5;
         move_x2 = speed2;
         
-        document.getElementById("swordplay").style.transform = "rotate(90deg)";
+        document.getElementById("swordplay").style.transform = "rotate(-90deg)";
     }
     if(e.keyCode == 37){
         speed2 = -1.5;
     move_x2 = speed2;
         
-         document.getElementById("swordplay").style.transform = "rotate(-90deg)";
+         document.getElementById("swordplay").style.transform = "rotate(90deg)";
     }
     if(e.keyCode == 40){
           if (main_y2 == null){
@@ -135,12 +135,12 @@ function keyPressSword(e){
         horizontal2 = 1.5;
     move_y2 = horizontal2;
         
-         document.getElementById("swordplay").style.transform = "rotate(180deg)";
+         document.getElementById("swordplay").style.transform = "rotate(360deg)";
     }
     if(e.keyCode == 38){
         horizontal2 = -1.5;
     move_y2 = horizontal2;
-        document.getElementById("swordplay").style.transform = "rotate(360deg)";
+        document.getElementById("swordplay").style.transform = "rotate(180deg)";
     }
     if(e.keyCode == 96){
          var sound = document.getElementById("");
@@ -250,8 +250,8 @@ function gameloop(){
         document.getElementById("solo").style.zIndex = "1"
          document.getElementById("co-op").style.zIndex = "1"
         document.getElementById("start").style.zIndex = "1";
-         document.getElementById("space").style.zIndex = "6";
-         document.getElementById("hammerplay").style.zIndex = "6";
+         document.getElementById("canvas_wrap").style.zIndex = "2";
+         document.getElementById("play").style.zIndex = "7";
     }
     
     resume.onclick = function(){
