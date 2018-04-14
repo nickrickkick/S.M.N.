@@ -311,6 +311,9 @@ function gameloop(){
         document.getElementById("start").style.zIndex = "1";
          document.getElementById("canvas_wrap").style.zIndex = "2";
          document.getElementById("play").style.zIndex = "7";
+          document.getElementById("background_music").pause();
+     var sound2 = document.getElementById("epic_music");
+         sound2.play();
     }
     
     resume.onclick = function(){
